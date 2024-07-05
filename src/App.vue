@@ -2,16 +2,14 @@
   <div class="box">
     <h1>App根组件</h1>
     <h2>我的</h2>
+    <el-button type="primary" :icon="Edit" />
   </div>
 </template>
 
 <script setup lang="ts">
-const str = '我爱你祖国'
+import { Edit } from '@element-plus/icons-vue'
 
-console.log('str', str)
-for (let i = 0; i < 100; i++) {
-  console.log(i)
-}
+
 </script>
 
 <style scoped lang="scss">
