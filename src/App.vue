@@ -4,9 +4,7 @@
     <h2>我的</h2>
     <el-button type="primary" :icon="Edit" />
     <i class="iconfont icon-settings"></i>
-    <Test>
-
-    </Test>
+    <Test></Test>
   </div>
 </template>
 
@@ -14,8 +12,8 @@
 import { Edit } from '@element-plus/icons-vue'
 import Test from '@/components/Test.vue'
 import './style/icon.scss'
-const a = 1;
-console.log('a', a);
+const a = 1
+console.log('a', a)
 </script>
 
 <style scoped lang="scss"></style>
