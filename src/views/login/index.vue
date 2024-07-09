@@ -1,12 +1,7 @@
 <template>
-  <div>
-    登录组件
-  </div>
+  <div>登录组件</div>
 </template>
 
-<script setup lang='ts'>
- 
-</script>
+<script setup lang="ts"></script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

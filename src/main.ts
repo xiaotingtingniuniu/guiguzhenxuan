@@ -16,7 +16,7 @@ app.use(ElementPlus, {
 //安装自定义的全局插件
 app.use(globalComponent)
 //注册路由
-app.use(router);
+app.use(router)
 /**
  * //测试mock接口代码
 import axios from 'axios';
