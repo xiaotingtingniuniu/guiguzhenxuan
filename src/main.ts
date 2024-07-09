@@ -12,7 +12,7 @@ app.use(ElementPlus, {
   locale: zhCn, //element-plus 国际化配置
 })
 //安装自定义的全局插件
-app.use(globalComponent);
+app.use(globalComponent)
 
 /**
  * //测试mock接口代码
@@ -27,7 +27,6 @@ axios({
   }
 });
 **/
-
 
 app.mount('#app')
 console.log('环境', import.meta.env)
