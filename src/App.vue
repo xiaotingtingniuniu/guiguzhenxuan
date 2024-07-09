@@ -5,6 +5,7 @@
     <el-button type="primary" :icon="Edit" />
     <i class="iconfont icon-settings"></i>
     <Test></Test>
+    <router-view></router-view>
   </div>
 </template>
 

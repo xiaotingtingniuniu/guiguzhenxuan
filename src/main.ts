@@ -7,13 +7,16 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import globalComponent from './components/index'
 //引入全局的默认样式
 import './style/index.scss'
+//引入路由
+import router from './router/index'
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn, //element-plus 国际化配置
 })
 //安装自定义的全局插件
 app.use(globalComponent)
-
+//注册路由
+app.use(router);
 /**
  * //测试mock接口代码
 import axios from 'axios';
