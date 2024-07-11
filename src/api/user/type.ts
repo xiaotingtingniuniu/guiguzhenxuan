@@ -10,7 +10,8 @@ export interface ResponseData {
 //登录接口返回的数据类型
 export interface LoginResponseData extends ResponseData {
   data: {
-    toke: string
+    token?: string,
+    message?:string
   }
 }
 //用户信息数据类型
@@ -27,5 +28,7 @@ export interface userInfor {
 }
 //用户信息接口返回数据类型
 export interface userInforResponseData extends ResponseData {
-  data: { userInfor }
+  data: { 
+    userInfor:userInfor
+   }
 }

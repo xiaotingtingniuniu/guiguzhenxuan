@@ -9,6 +9,7 @@ import globalComponent from './components/index'
 import './style/index.scss'
 //引入路由
 import router from './router/index'
+import store from './store/index'
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn, //element-plus 国际化配置
@@ -17,6 +18,8 @@ app.use(ElementPlus, {
 app.use(globalComponent)
 //注册路由
 app.use(router)
+//安装pinia仓库
+app.use(store);
 /**
  * //测试mock接口代码
 import axios from 'axios';

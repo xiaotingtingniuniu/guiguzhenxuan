@@ -8,8 +8,8 @@ enum API {
 }
 //暴露请求函数
 //登录接口
-export const login = (data: LoginData) =>
+export const reqLogin = (data: LoginData) =>
   http.post<any, LoginResponseData>(API.LOGIN_URL, data)
 //获取用户信息接口
-export const userInfor = () =>
+export const reqUserInfor = () =>
   http.get<any, userInforResponseData>(API.USERINFOR_URL)
