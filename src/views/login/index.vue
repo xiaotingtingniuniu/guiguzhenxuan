@@ -10,11 +10,22 @@
             <el-input :prefix-icon="User" v-model="loginForm.username" />
           </el-form-item>
           <el-form-item>
-            <el-input type="password" autocomplete="off" :prefix-icon="Lock" v-model="loginForm.password"
-              show-password />
+            <el-input
+              type="password"
+              autocomplete="off"
+              :prefix-icon="Lock"
+              v-model="loginForm.password"
+              show-password
+            />
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" size="default" class="login_btn" @click="login" :loading="loading">
+            <el-button
+              type="primary"
+              size="default"
+              class="login_btn"
+              @click="login"
+              :loading="loading"
+            >
               登录
             </el-button>
           </el-form-item>
@@ -30,45 +41,44 @@ import { reactive } from 'vue'
 //引入用户小仓库
 import useUserStore from '../../store/modules/user'
 import { ElNotification } from 'element-plus'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 import { ref } from 'vue'
-import  getTime  from '../../utils/time';
+import getTime from '../../utils/time'
 //获取路由器对象
-const $router = useRouter();
-const userStore = useUserStore();
+const $router = useRouter()
+const userStore = useUserStore()
 //收集账号和密码
 const loginForm = reactive({ username: 'admin', password: '111111' })
 //定义变量控制登录按钮的loading
-const loading = ref(false);
+const loading = ref(false)
 //点击登录按钮
 const login = async () => {
   //打开按钮的loading
-  loading.value = true;
+  loading.value = true
   //调用用户仓库的登录方法
   try {
     //保证登录成功
-    await userStore.userLogin(loginForm);
+    await userStore.userLogin(loginForm)
     //跳转到首页
-    $router.push('/home');
+    $router.push('/home')
     //登录成功提示
     //获取message时间
-    const message = getTime();
+    const message = getTime()
     ElNotification({
       type: 'success',
       title: `Hi,${message}好`,
-      message: '欢迎回来'
+      message: '欢迎回来',
     })
   } catch (error) {
     //登录失败的提示
     ElNotification({
       type: 'error',
-      message: (error as Error).message
+      message: (error as Error).message,
     })
   } finally {
     //关闭按钮loading
-    loading.value = false;
+    loading.value = false
   }
-
 }
 </script>
 

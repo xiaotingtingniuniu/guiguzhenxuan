@@ -19,7 +19,7 @@ app.use(globalComponent)
 //注册路由
 app.use(router)
 //安装pinia仓库
-app.use(store);
+app.use(store)
 /**
  * //测试mock接口代码
 import axios from 'axios';
