@@ -3,18 +3,34 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form class="login_form" :model="loginForm" :rules="rules" ref="loginForms">
+        <el-form
+          class="login_form"
+          :model="loginForm"
+          :rules="rules"
+          ref="loginForms"
+        >
           <h1>Hello</h1>
           <h2>欢迎来到硅谷甄选</h2>
           <el-form-item prop="username">
             <el-input :prefix-icon="User" v-model="loginForm.username" />
           </el-form-item>
           <el-form-item prop="password">
-            <el-input type="password" autocomplete="off" :prefix-icon="Lock" v-model="loginForm.password"
-              show-password />
+            <el-input
+              type="password"
+              autocomplete="off"
+              :prefix-icon="Lock"
+              v-model="loginForm.password"
+              show-password
+            />
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" size="default" class="login_btn" @click="login" :loading="loading">
+            <el-button
+              type="primary"
+              size="default"
+              class="login_btn"
+              @click="login"
+              :loading="loading"
+            >
               登录
             </el-button>
           </el-form-item>
@@ -41,19 +57,19 @@ const loginForm = reactive({ username: 'admin', password: '111111' })
 //定义变量控制登录按钮的loading
 const loading = ref(false)
 //自定义校验username的函数
-const validateUsername = (rule:any,value:any,callback:any)=>{
-  if(value.length>=5){
-    callback();
-  }else{
-    callback(new Error('账号长度至少五位'));
+const validateUsername = (rule: any, value: any, callback: any) => {
+  if (value.length >= 5) {
+    callback()
+  } else {
+    callback(new Error('账号长度至少五位'))
   }
 }
 //自定义校验password的函数
-const validatePassword =(rule:any,value:any,callback:any)=>{
-  if(value.length>=6&&value.length<=15){
-    callback();
-  }else{
-    callback(new Error('密码长度至少6位，最多15位'));
+const validatePassword = (rule: any, value: any, callback: any) => {
+  if (value.length >= 6 && value.length <= 15) {
+    callback()
+  } else {
+    callback(new Error('密码长度至少6位，最多15位'))
   }
 }
 
@@ -68,20 +84,20 @@ const rules = reactive({
   username: [
     // { required: true, min: 5, max: 10, message: '账号长度至少五位', trigger: 'change' }
     //自定义规则
-    {validator:validateUsername,trigger:'change'}
+    { validator: validateUsername, trigger: 'change' },
   ],
   password: [
     // { required: true, min: 6, max: 15, message: '密码长度至少6位，最多15位', trigger: 'change' }
-    {validator:validatePassword,trigger:'change'}
-  ]
-});
+    { validator: validatePassword, trigger: 'change' },
+  ],
+})
 //获取form表单对象
-const loginForms = ref();
+const loginForms = ref()
 //点击登录按钮
 const login = async () => {
   //保证全部表单相校验通过后再发出请求
-  console.log('loginForms', loginForms.value.validate());
-  await loginForms.value.validate();
+  console.log('loginForms', loginForms.value.validate())
+  await loginForms.value.validate()
   //打开按钮的loading
   loading.value = true
   //调用用户仓库的登录方法
