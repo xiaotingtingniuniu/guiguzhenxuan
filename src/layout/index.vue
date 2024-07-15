@@ -7,7 +7,14 @@
       <!-- 滚动组件 -->
       <el-scrollbar class="scrollbar">
         <!-- 菜单组件 -->
-        <el-menu default-active="1" class="el-menu-vertical-demo" active-text-color="#ffd04b" background-color="#001529" text-color="#fff" :router="true">
+        <el-menu
+          default-active="1"
+          class="el-menu-vertical-demo"
+          active-text-color="#ffd04b"
+          background-color="#001529"
+          text-color="#fff"
+          :router="true"
+        >
           <!-- 根据路由动态生成菜单 -->
           <Menu :menuList="userStore.menuRoutes"></Menu>
         </el-menu>
@@ -16,9 +23,7 @@
     <!-- 右侧 -->
     <div class="layout_right">
       <!-- 顶部导航 -->
-      <div class="layout_tab">
-        456
-      </div>
+      <div class="layout_tab">456</div>
       <!-- 内容展示区 -->
       <div class="layout_main">
         <Main></Main>
@@ -27,14 +32,14 @@
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import Logo from '@/layout/logo/index.vue'
 import Menu from '@/layout/menu/index.vue'
 import Main from '@/layout/main/index.vue'
 //引入用户小仓库
 import useUserStore from '../store/modules/user'
 const userStore = useUserStore()
-console.log('menuRoutes',userStore.menuRoutes);
+console.log('menuRoutes', userStore.menuRoutes)
 </script>
 
 <style scoped lang="scss">
@@ -77,7 +82,7 @@ console.log('menuRoutes',userStore.menuRoutes);
     }
   }
 }
-::v-deep .el-menu{
-  border-right:none;
+::v-deep .el-menu {
+  border-right: none;
 }
 </style>

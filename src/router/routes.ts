@@ -5,8 +5,8 @@ export const routes = [
     name: 'login',
     meta: {
       title: '登录',
-      hidden: true,//路由的标题在菜单中是否隐藏
-      icon: 'Promotion'//菜单文字左侧的图标,支持Element-plus所有图标
+      hidden: true, //路由的标题在菜单中是否隐藏
+      icon: 'Promotion', //菜单文字左侧的图标,支持Element-plus所有图标
     },
   },
   {
@@ -27,10 +27,10 @@ export const routes = [
         meta: {
           title: '首页',
           hidden: false,
-          icon: 'HomeFilled'
-        }
-      }
-    ]
+          icon: 'HomeFilled',
+        },
+      },
+    ],
   },
   {
     path: '/screen',
@@ -39,8 +39,8 @@ export const routes = [
     meta: {
       title: '数据大屏',
       hidden: false,
-      icon: 'FullScreen'
-    }
+      icon: 'FullScreen',
+    },
   },
   {
     path: '/acl',
@@ -49,7 +49,7 @@ export const routes = [
     meta: {
       title: '权限管理',
       hidden: false,
-      icon: 'Lock'
+      icon: 'Lock',
     },
     children: [
       {
@@ -59,8 +59,8 @@ export const routes = [
         meta: {
           title: '用户管理',
           hidden: false,
-          icon: 'User'
-        }
+          icon: 'User',
+        },
       },
       {
         path: '/acl/role',
@@ -69,72 +69,72 @@ export const routes = [
         meta: {
           title: '角色管理',
           hidden: false,
-          icon: 'UserFilled'
-        }
+          icon: 'UserFilled',
+        },
       },
       {
-        path:'/acl/permission',
-        component:()=>import('../views/acl/permission/index.vue'),
-        name:'Permission',
-        meta:{
-          title:'菜单管理',
-          hidden:false,
-          icon:'Monitor'
-        }
-      }
-    ]
+        path: '/acl/permission',
+        component: () => import('../views/acl/permission/index.vue'),
+        name: 'Permission',
+        meta: {
+          title: '菜单管理',
+          hidden: false,
+          icon: 'Monitor',
+        },
+      },
+    ],
   },
   {
     path: '/product',
     component: () => import('@/layout/index.vue'),
     name: 'Product',
-    meta:{
-      title:'商品管理',
-      hidden:false,
-      icon:'Goods'
+    meta: {
+      title: '商品管理',
+      hidden: false,
+      icon: 'Goods',
     },
-    children:[
+    children: [
       {
-        path:'/product/trademark',
-        component:() => import('../views/product/trademark/index.vue'),
-        name:'Trademark',
-        meta:{
-          title:'品牌管理',
-          hidden:false,
-          icon:'ShoppingCartFull'
-        }
+        path: '/product/trademark',
+        component: () => import('../views/product/trademark/index.vue'),
+        name: 'Trademark',
+        meta: {
+          title: '品牌管理',
+          hidden: false,
+          icon: 'ShoppingCartFull',
+        },
       },
       {
-        path:'/product/attr',
-        component:() => import('../views/product/attr/index.vue'),
-        name:'Attr',
-        meta:{
-          title:'属性管理',
-          hidden:false,
-          icon:'ChromeFilled'
-        }
+        path: '/product/attr',
+        component: () => import('../views/product/attr/index.vue'),
+        name: 'Attr',
+        meta: {
+          title: '属性管理',
+          hidden: false,
+          icon: 'ChromeFilled',
+        },
       },
       {
-        path:'/product/spu',
-        component:() => import('../views/product/spu/index.vue'),
-        name:'Spu',
-        meta:{
-          title:'Spu管理',
-          hidden:false,
-          icon:'Calendar'
-        }
+        path: '/product/spu',
+        component: () => import('../views/product/spu/index.vue'),
+        name: 'Spu',
+        meta: {
+          title: 'Spu管理',
+          hidden: false,
+          icon: 'Calendar',
+        },
       },
       {
-        path:'/product/sku',
-        component:() => import('../views/product/sku/index.vue'),
-        name:'Sku',
-        meta:{
-          title:'Sku管理',
-          hidden:false,
-          icon:'Orange'
-        }
-      }
-    ]
+        path: '/product/sku',
+        component: () => import('../views/product/sku/index.vue'),
+        name: 'Sku',
+        meta: {
+          title: 'Sku管理',
+          hidden: false,
+          icon: 'Orange',
+        },
+      },
+    ],
   },
   {
     path: '/404',
@@ -143,7 +143,7 @@ export const routes = [
     meta: {
       title: '404页',
       hidden: true,
-      icon: 'Grid'
+      icon: 'Grid',
     },
   },
   {
@@ -153,7 +153,7 @@ export const routes = [
     meta: {
       title: '任意路径',
       hidden: true,
-      icon: 'Grid'
-    }
-  }
+      icon: 'Grid',
+    },
+  },
 ]

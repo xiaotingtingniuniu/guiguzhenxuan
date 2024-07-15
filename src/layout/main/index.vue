@@ -6,26 +6,24 @@
     <router-view v-slot="{ Component }">
       <transition name="fade">
         <!-- 全局组件 -->
-         <!-- 渲染layout一级路由组件的子路由 -->
+        <!-- 渲染layout一级路由组件的子路由 -->
         <component :is="Component" />
       </transition>
     </router-view>
   </div>
 </template>
 
-<script setup lang='ts'>
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
-.fade-enter-from{
+.fade-enter-from {
   opacity: 0;
   transform: scale(0);
 }
-.fade-enter-active{
-  transition: all .5s;
+.fade-enter-active {
+  transition: all 0.5s;
 }
-.fade-enter-to{
+.fade-enter-to {
   opacity: 1;
   transform: scale(1);
 }
