@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import Breadcrumb from '../tabbar/breadcrumb/index.vue'
 import Setting from '../tabbar/setting/index.vue'
 </script>
@@ -20,7 +20,12 @@ import Setting from '../tabbar/setting/index.vue'
   height: 100%;
   display: flex;
   justify-content: space-between;
-  background-image: linear-gradient(to right,rgb(249, 247, 247),rgb(246, 224, 224),rgb(249, 211, 211));
+  background-image: linear-gradient(
+    to right,
+    rgb(249, 247, 247),
+    rgb(246, 224, 224),
+    rgb(249, 211, 211)
+  );
 
   .left {
     display: flex;
@@ -38,7 +43,7 @@ import Setting from '../tabbar/setting/index.vue'
     .head_sculpture {
       width: 24px;
       height: 24px;
-      margin-left:10px;
+      margin-left: 10px;
     }
   }
 }

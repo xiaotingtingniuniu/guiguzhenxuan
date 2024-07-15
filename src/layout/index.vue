@@ -47,7 +47,7 @@ import { useRoute } from 'vue-router'
 const userStore = useUserStore()
 console.log('menuRoutes', userStore.menuRoutes)
 // 获取路由对象
-const $route = useRoute();
+const $route = useRoute()
 </script>
 
 <style scoped lang="scss">

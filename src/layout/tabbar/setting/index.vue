@@ -2,7 +2,7 @@
   <el-button size="small" icon="Refresh" circle />
   <el-button size="small" icon="FullScreen" circle />
   <el-button size="small" icon="Setting" circle />
-  <img src="../../../../public/logo.png" alt="" class="head_sculpture">
+  <img src="../../../../public/logo.png" alt="" class="head_sculpture" />
   <!-- 下拉菜单 -->
   <el-dropdown>
     <span class="el-dropdown-link">
@@ -19,9 +19,7 @@
   </el-dropdown>
 </template>
 
-<script setup lang='ts'>
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 .head_sculpture {
