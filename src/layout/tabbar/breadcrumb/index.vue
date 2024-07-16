@@ -1,7 +1,9 @@
 <template>
   <!-- 顶部左侧静态 -->
   <el-icon class="expand" @click="changeFlag">
-    <component :is="!layOutSettingStore.menuOpenTag?'Expand':'Fold'"></component>
+    <component
+      :is="!layOutSettingStore.menuOpenTag ? 'Expand' : 'Fold'"
+    ></component>
   </el-icon>
   <!-- 左侧面包屑 -->
   <el-breadcrumb separator-icon="ArrowRight">
@@ -11,16 +13,16 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue'
 import useLayOutSettingStore from '../../../store/modules/setting'
-const layOutSettingStore = useLayOutSettingStore();
-const changeFlag = ()=>{
-  layOutSettingStore.menuOpenTag = !layOutSettingStore.menuOpenTag;
+const layOutSettingStore = useLayOutSettingStore()
+const changeFlag = () => {
+  layOutSettingStore.menuOpenTag = !layOutSettingStore.menuOpenTag
 }
 </script>
 <script lang="ts">
 export default {
-  name:'Breadcrumb'
+  name: 'Breadcrumb',
 }
 </script>
 <style scoped lang="scss">

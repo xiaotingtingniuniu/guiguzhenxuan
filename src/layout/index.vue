@@ -1,7 +1,10 @@
 <template>
   <div class="container_layout">
     <!-- 左侧 左侧菜单 -->
-    <div class="layout_left" :class="{flod:settingStore.menuOpenTag?true:false}">
+    <div
+      class="layout_left"
+      :class="{ flod: settingStore.menuOpenTag ? true : false }"
+    >
       <Logo />
       <!-- 展示菜单 -->
       <!-- 滚动组件 -->
@@ -49,13 +52,13 @@ import { useRoute } from 'vue-router'
 const userStore = useUserStore()
 console.log('menuRoutes', userStore.menuRoutes)
 //获取设置layout小仓库
-const settingStore = useLayOutSettingStore();
+const settingStore = useLayOutSettingStore()
 // 获取路由对象
 const $route = useRoute()
 </script>
 <script lang="ts">
 export default {
-  name:'Layout'
+  name: 'Layout',
 }
 </script>
 
@@ -64,7 +67,7 @@ export default {
   width: 100%;
   height: 100vh;
   display: flex;
- 
+
   .layout_left {
     width: $base-menu-width;
     height: 100vh;
@@ -75,8 +78,8 @@ export default {
       width: 100%;
       height: calc(100vh - $base-menu-logo-height);
     }
-    &.flod{
-      width:$base-menu-min-width;
+    &.flod {
+      width: $base-menu-min-width;
     }
   }
 

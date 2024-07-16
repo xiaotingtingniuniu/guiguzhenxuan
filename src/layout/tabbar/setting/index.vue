@@ -22,7 +22,7 @@
 <script setup lang="ts"></script>
 <script lang="ts">
 export default {
-  name:'Setting'
+  name: 'Setting',
 }
 </script>
 

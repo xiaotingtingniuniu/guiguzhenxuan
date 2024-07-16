@@ -1,4 +1,3 @@
-
 <template>
   <div class="logo" v-if="setting.logoHidden">
     <img :src="setting.logo" alt="" />
@@ -10,11 +9,11 @@
 import setting from '../../setting'
 import useLayOutSettingStore from '../../store/modules/setting'
 //获取设置layout小仓库
-const settingStore = useLayOutSettingStore();
+const settingStore = useLayOutSettingStore()
 </script>
 <script lang="ts">
 export default {
-  name:'Logo'
+  name: 'Logo',
 }
 </script>
 <style scoped lang="scss">
