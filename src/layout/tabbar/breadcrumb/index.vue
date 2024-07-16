@@ -1,12 +1,20 @@
 <template>
   <!-- 顶部左侧静态 -->
   <el-icon class="expand" @click="changeFlag">
-    <component :is="!layOutSettingStore.menuOpenTag ? 'Expand' : 'Fold'"></component>
+    <component
+      :is="!layOutSettingStore.menuOpenTag ? 'Expand' : 'Fold'"
+    ></component>
   </el-icon>
   <!-- 左侧面包屑 -->
   <el-breadcrumb separator-icon="ArrowRight" class="left_breadcrumb">
     <!-- 面包屑动态展示路由名字与标题 -->
-    <el-breadcrumb-item v-for="(item, index) in $route.matched" :key="index" class="left_breadcrumb_item" v-show="item.meta.icon !== ''" :to="item.path">
+    <el-breadcrumb-item
+      v-for="(item, index) in $route.matched"
+      :key="index"
+      class="left_breadcrumb_item"
+      v-show="item.meta.icon !== ''"
+      :to="item.path"
+    >
       <!-- 图标 -->
       <el-icon class="expand" @click="changeFlag">
         <component :is="item.meta.icon"></component>
@@ -25,8 +33,8 @@ const changeFlag = () => {
   layOutSettingStore.menuOpenTag = !layOutSettingStore.menuOpenTag
 }
 //获取路由对象
-const $route = useRoute();
-console.log('$route', $route.matched);
+const $route = useRoute()
+console.log('$route', $route.matched)
 </script>
 <script lang="ts">
 export default {

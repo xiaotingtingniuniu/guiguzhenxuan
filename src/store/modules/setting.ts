@@ -4,7 +4,7 @@ const useLayOutSettingStore = defineStore('setting', {
   state: () => {
     return {
       menuOpenTag: false, //菜单是否水平折叠收起菜单 true为收起 false为打开
-      refresh:false,//仓库这个属性用于控制刷新
+      refresh: false, //仓库这个属性用于控制刷新
     }
   },
   actions: {},
