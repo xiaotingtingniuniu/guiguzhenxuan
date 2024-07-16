@@ -15,9 +15,9 @@ export const routes = [
     name: 'layout',
     redirect: '/home',
     meta: {
-      title: 'layout',
+      title: '',
       hidden: false,
-      icon: 'Avatar',
+      icon: '',
     },
     children: [
       {
@@ -51,6 +51,7 @@ export const routes = [
       hidden: false,
       icon: 'Lock',
     },
+    redirect:'/acl/user',
     children: [
       {
         path: '/acl/user',
@@ -93,6 +94,7 @@ export const routes = [
       hidden: false,
       icon: 'Goods',
     },
+    redirect:'/product/trademark',
     children: [
       {
         path: '/product/trademark',
