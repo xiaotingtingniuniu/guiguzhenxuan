@@ -17,7 +17,7 @@ const useUserStore = defineStore('User', {
       menuRoutes: routes, //仓库存储生成菜单需要数组（路由）
     }
   },
-  //处理一步逻辑的地方
+  //处理异步逻辑的地方
   actions: {
     async userLogin(data: LoginData) {
       const result: LoginResponseData = await reqLogin(data)

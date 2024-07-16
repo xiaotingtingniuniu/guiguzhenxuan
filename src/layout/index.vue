@@ -1,7 +1,7 @@
 <template>
   <div class="container_layout">
     <!-- 左侧 左侧菜单 -->
-    <div class="layout_left">
+    <div class="layout_left" :class="{flod:settingStore.menuOpenTag?true:false}">
       <Logo />
       <!-- 展示菜单 -->
       <!-- 滚动组件 -->
@@ -14,7 +14,8 @@
           background-color="#001529"
           text-color="#fff"
           :router="true"
-          collapse
+          :collapse="settingStore.menuOpenTag"
+          :collapse-transition="false"
         >
           <!-- 根据路由动态生成菜单 -->
           <Menu :menuList="userStore.menuRoutes"></Menu>
@@ -42,12 +43,20 @@ import Main from '@/layout/main/index.vue'
 import Tabbar from '@/layout/tabbar/index.vue'
 //引入用户小仓库
 import useUserStore from '../store/modules/user'
+import useLayOutSettingStore from '../store/modules/setting'
 import { useRoute } from 'vue-router'
 //获取用户小仓库
 const userStore = useUserStore()
 console.log('menuRoutes', userStore.menuRoutes)
+//获取设置layout小仓库
+const settingStore = useLayOutSettingStore();
 // 获取路由对象
 const $route = useRoute()
+</script>
+<script lang="ts">
+export default {
+  name:'Layout'
+}
 </script>
 
 <style scoped lang="scss">
@@ -55,15 +64,19 @@ const $route = useRoute()
   width: 100%;
   height: 100vh;
   display: flex;
-
+ 
   .layout_left {
     width: $base-menu-width;
     height: 100vh;
     background-color: $base-menu-background;
     color: white;
+    transition: all 0.3s;
     .scrollbar {
       width: 100%;
       height: calc(100vh - $base-menu-logo-height);
+    }
+    &.flod{
+      width:$base-menu-min-width;
     }
   }
 
