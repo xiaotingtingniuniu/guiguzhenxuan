@@ -3,18 +3,34 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form class="login_form" :model="loginForm" :rules="rules" ref="loginForms">
+        <el-form
+          class="login_form"
+          :model="loginForm"
+          :rules="rules"
+          ref="loginForms"
+        >
           <h1>Hello</h1>
           <h2>欢迎来到硅谷甄选</h2>
           <el-form-item prop="username">
             <el-input :prefix-icon="User" v-model="loginForm.username" />
           </el-form-item>
           <el-form-item prop="password">
-            <el-input type="password" autocomplete="off" :prefix-icon="Lock" v-model="loginForm.password"
-              show-password />
+            <el-input
+              type="password"
+              autocomplete="off"
+              :prefix-icon="Lock"
+              v-model="loginForm.password"
+              show-password
+            />
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" size="default" class="login_btn" @click="login" :loading="loading">
+            <el-button
+              type="primary"
+              size="default"
+              class="login_btn"
+              @click="login"
+              :loading="loading"
+            >
               登录
             </el-button>
           </el-form-item>
@@ -91,10 +107,10 @@ const login = async () => {
   try {
     //保证登录成功
     await userStore.userLogin(loginForm)
-    let redirect:any = $route.query.redirect;
-    console.log('redirect',redirect);
+    let redirect: any = $route.query.redirect
+    console.log('redirect', redirect)
     //跳转路由
-    $router.push({path:redirect||'/home'})
+    $router.push({ path: redirect || '/home' })
     //登录成功提示
     //获取message时间
     const message = getTime()

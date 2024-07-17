@@ -8,6 +8,6 @@ export const GET_TOKEN = () => {
   return localStorage.getItem('TOKEN')
 }
 //清除本地数据
-export const REMOVE_TOKEN = ()=>{
+export const REMOVE_TOKEN = () => {
   return localStorage.removeItem('TOKEN')
 }

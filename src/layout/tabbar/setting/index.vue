@@ -23,15 +23,15 @@
 //获取layout的小仓库
 import useLayOutSettingStore from '../../../store/modules/setting'
 //获取用户小仓库
-import useUserStore from '../../../store/modules/user';
-import { useRouter,useRoute } from 'vue-router';
+import useUserStore from '../../../store/modules/user'
+import { useRouter, useRoute } from 'vue-router'
 //获取路由器对象
-const $router=useRouter();
+const $router = useRouter()
 //获取路由对象
-const $route = useRoute();
+const $route = useRoute()
 const layOutSettingStore = useLayOutSettingStore()
 console.log('layOutSettingStore', layOutSettingStore)
-const userStore = useUserStore();
+const userStore = useUserStore()
 //点击刷新按钮
 const updateRefresh = () => {
   layOutSettingStore.refresh = !layOutSettingStore.refresh
@@ -51,14 +51,14 @@ const fullScreen = () => {
   }
 }
 //退出登录
-const logout = ()=>{
+const logout = () => {
   //第一步：需要向服务器发送请求【退出登录接口】
   //第二步：仓库当中关于用于相关的数据清空【token、username、avatar】
   //第三步：跳转到登录页面
   //清空数据
-  userStore.userLogout();
+  userStore.userLogout()
   //跳转到登录页面，并且从哪里来的，还可以回到哪里去
-  $router.push({path:'/login',query:{redirect:$route.path}});
+  $router.push({ path: '/login', query: { redirect: $route.path } })
 }
 </script>
 <script lang="ts">
