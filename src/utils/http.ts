@@ -1,6 +1,7 @@
 //进行axios二次封装：目的是使用请求与响应拦截器
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
+import { GET_TOKEN } from './token'
 //第一步：利用axios对象的create方法，创建axios实例(其他的配置：基础路径、超时的时间)
 const http = axios.create({
   //基础路径
@@ -10,7 +11,7 @@ const http = axios.create({
 //第二步：http实例添加请求拦截器
 http.interceptors.request.use((config: any) => {
   //config配置对象，headers属性请求头，经常给服务器端携带公共参数
-  const token = localStorage.getItem('token')
+  const token = GET_TOKEN();//获取本地存储的token
   if (token) {
     //如果存在token表示已经登录,需要在请求头中加入
     config.headers.token = token

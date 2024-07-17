@@ -3,34 +3,18 @@
     <el-row>
       <el-col :span="12" :xs="0"></el-col>
       <el-col :span="12" :xs="24">
-        <el-form
-          class="login_form"
-          :model="loginForm"
-          :rules="rules"
-          ref="loginForms"
-        >
+        <el-form class="login_form" :model="loginForm" :rules="rules" ref="loginForms">
           <h1>Hello</h1>
           <h2>欢迎来到硅谷甄选</h2>
           <el-form-item prop="username">
             <el-input :prefix-icon="User" v-model="loginForm.username" />
           </el-form-item>
           <el-form-item prop="password">
-            <el-input
-              type="password"
-              autocomplete="off"
-              :prefix-icon="Lock"
-              v-model="loginForm.password"
-              show-password
-            />
+            <el-input type="password" autocomplete="off" :prefix-icon="Lock" v-model="loginForm.password"
+              show-password />
           </el-form-item>
           <el-form-item>
-            <el-button
-              type="primary"
-              size="default"
-              class="login_btn"
-              @click="login"
-              :loading="loading"
-            >
+            <el-button type="primary" size="default" class="login_btn" @click="login" :loading="loading">
               登录
             </el-button>
           </el-form-item>
@@ -46,12 +30,15 @@ import { reactive } from 'vue'
 //引入用户小仓库
 import useUserStore from '../../store/modules/user'
 import { ElNotification } from 'element-plus'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { ref } from 'vue'
 import getTime from '../../utils/time'
 //获取路由器对象
 const $router = useRouter()
+//获取用户小仓库
 const userStore = useUserStore()
+//获取路由对象
+const $route = useRoute()
 //收集账号和密码
 const loginForm = reactive({ username: 'admin', password: '111111' })
 //定义变量控制登录按钮的loading
@@ -104,8 +91,10 @@ const login = async () => {
   try {
     //保证登录成功
     await userStore.userLogin(loginForm)
-    //跳转到首页
-    $router.push('/home')
+    let redirect:any = $route.query.redirect;
+    console.log('redirect',redirect);
+    //跳转路由
+    $router.push({path:redirect||'/home'})
     //登录成功提示
     //获取message时间
     const message = getTime()

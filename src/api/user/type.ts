@@ -15,7 +15,7 @@ export interface LoginResponseData extends ResponseData {
   }
 }
 //用户信息数据类型
-export interface userInfor {
+export interface UserInfor {
   userId: number
   avatar: string
   username: string
@@ -27,8 +27,8 @@ export interface userInfor {
   token: string
 }
 //用户信息接口返回数据类型
-export interface userInforResponseData extends ResponseData {
+export interface UserInforResponseData extends ResponseData {
   data: {
-    userInfor: userInfor
+    checkUser: UserInfor
   }
 }

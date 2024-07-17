@@ -1,10 +1,10 @@
 //创建用户相关的小仓库
 import { defineStore } from 'pinia'
 //调用登录接口
-import { reqLogin } from '../../api/user/index'
-import { LoginData, LoginResponseData } from '../../api/user/type'
+import { reqLogin,reqUserInfor } from '../../api/user/index'
+import { LoginData, LoginResponseData,UserInforResponseData } from '../../api/user/type'
 import { UserState } from './types/type'
-import { SET_TOKEN, GET_TOKEN } from '../../utils/token'
+import { SET_TOKEN, GET_TOKEN,REMOVE_TOKEN } from '../../utils/token'
 //引入路由（常量路由）
 import { routes } from '@/router/routes.ts'
 //选项式写法
@@ -15,10 +15,13 @@ const useUserStore = defineStore('User', {
     return {
       token: GET_TOKEN(), //用户唯一标识token
       menuRoutes: routes, //仓库存储生成菜单需要数组（路由）
+      userName:'',
+      avatar:''
     }
   },
   //处理异步逻辑的地方
   actions: {
+    //用户登录的方法
     async userLogin(data: LoginData) {
       const result: LoginResponseData = await reqLogin(data)
       console.log('result', result)
@@ -35,6 +38,22 @@ const useUserStore = defineStore('User', {
         return Promise.reject(new Error(result.data.message))
       }
     },
+    //获取用户信息
+    async userInfor(){
+      const result:UserInforResponseData = await reqUserInfor();
+      console.log('result',result);
+      if(result.code===200){
+        this.userName = result.data.checkUser.username;
+        this.avatar = result.data.checkUser.avatar;
+      }
+    },
+    //退出登录
+    userLogout(){
+      this.token = '',
+      this.userName = '',
+      this.avatar = '',
+      REMOVE_TOKEN();
+    }
   },
   //处理数据的地方
   getters: {},
