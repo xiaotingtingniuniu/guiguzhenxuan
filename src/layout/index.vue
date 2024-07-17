@@ -73,7 +73,7 @@ export default {
     height: 100vh;
     background-color: $base-menu-background;
     color: white;
-    transition: all 0.3s;
+    transition: all 0.1s;
     .scrollbar {
       width: 100%;
       height: calc(100vh - $base-menu-logo-height);

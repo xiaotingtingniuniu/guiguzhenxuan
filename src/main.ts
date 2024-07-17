@@ -33,6 +33,7 @@ axios({
   }
 });
 **/
-
+//引入路由鉴权文件
+import './permission'
 app.mount('#app')
 console.log('环境', import.meta.env)
