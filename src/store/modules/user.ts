@@ -50,7 +50,7 @@ const useUserStore = defineStore('User', {
         this.userName = result.data.checkUser.username
         this.avatar = result.data.checkUser.avatar
         return 'ok'
-      }else{
+      } else {
         return Promise.reject('获取用户信息失败')
       }
     },
