@@ -1,12 +1,8 @@
 //创建用户相关的小仓库
 import { defineStore } from 'pinia'
 //调用登录接口
-import { reqLogin, reqUserInfor } from '../../api/user/index'
-import {
-  LoginData,
-  LoginResponseData,
-  UserInforResponseData,
-} from '../../api/user/type'
+import { reqLogin, reqUserInfor, reqLogout } from '../../api/user/index'
+import { LoginData, LoginResponseData, UserInforResponseData } from '../../api/user/type'
 import { UserState } from './types/type'
 import { SET_TOKEN, GET_TOKEN, REMOVE_TOKEN } from '../../utils/token'
 //引入路由（常量路由）
@@ -31,15 +27,15 @@ const useUserStore = defineStore('User', {
       console.log('result', result)
       if (result.code === 200) {
         //登录成功
-        const token = result.data.token
-        this.token = token as string //存入仓库
+        const token = result.data
+        this.token = token //存入仓库
         //存入缓存
-        SET_TOKEN(token as string)
+        SET_TOKEN(token)
         //保证当前async函数返回一个成功的promise
         return 'ok'
       } else {
         //登录失败 返回一个错误的Promise
-        return Promise.reject(new Error(result.data.message))
+        return Promise.reject(new Error(result.data))
       }
     },
     //获取用户信息
@@ -47,19 +43,26 @@ const useUserStore = defineStore('User', {
       const result: UserInforResponseData = await reqUserInfor()
       console.log('result', result)
       if (result.code === 200) {
-        this.userName = result.data.checkUser.username
-        this.avatar = result.data.checkUser.avatar
+        this.userName = result.data.name
+        this.avatar = result.data.avatar
         return 'ok'
       } else {
-        return Promise.reject('获取用户信息失败')
+        return Promise.reject(new Error(result.message));
       }
     },
     //退出登录
-    userLogout() {
-      ;(this.token = ''),
-        (this.userName = ''),
-        (this.avatar = ''),
-        REMOVE_TOKEN()
+    async userLogout() {
+      const result = await reqLogout();
+      if(result.code === 200){
+        this.token = '',
+        this.userName = '',
+        this.avatar = '',
+        REMOVE_TOKEN();
+        return 'ok'
+      }else{
+        return Promise.reject(new Error(result.message));
+      }
+
     },
   },
   //处理数据的地方
