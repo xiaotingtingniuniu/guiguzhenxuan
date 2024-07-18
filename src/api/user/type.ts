@@ -15,15 +15,12 @@ export interface LoginResponseData extends ResponseData {
   data: string
 }
 
-export type Routes = []
-export type Buttons = []
-export type Roles = []
 //用户信息接口返回数据类型
 export interface UserInforResponseData extends ResponseData {
   data: {
-    routes: Routes
-    buttons: Buttons
-    roles: Roles
+    routes: string[],
+    buttons: string[],
+    roles: string[],
     name: string
     avatar: string
   }
