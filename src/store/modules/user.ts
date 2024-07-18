@@ -2,7 +2,11 @@
 import { defineStore } from 'pinia'
 //调用登录接口
 import { reqLogin, reqUserInfor, reqLogout } from '../../api/user/index'
-import { LoginData, LoginResponseData, UserInforResponseData } from '../../api/user/type'
+import {
+  LoginData,
+  LoginResponseData,
+  UserInforResponseData,
+} from '../../api/user/type'
 import { UserState } from './types/type'
 import { SET_TOKEN, GET_TOKEN, REMOVE_TOKEN } from '../../utils/token'
 //引入路由（常量路由）
@@ -47,22 +51,21 @@ const useUserStore = defineStore('User', {
         this.avatar = result.data.avatar
         return 'ok'
       } else {
-        return Promise.reject(new Error(result.message));
+        return Promise.reject(new Error(result.message))
       }
     },
     //退出登录
     async userLogout() {
-      const result = await reqLogout();
-      if(result.code === 200){
-        this.token = '',
-        this.userName = '',
-        this.avatar = '',
-        REMOVE_TOKEN();
+      const result = await reqLogout()
+      if (result.code === 200) {
+        ;(this.token = ''),
+          (this.userName = ''),
+          (this.avatar = ''),
+          REMOVE_TOKEN()
         return 'ok'
-      }else{
-        return Promise.reject(new Error(result.message));
+      } else {
+        return Promise.reject(new Error(result.message))
       }
-
     },
   },
   //处理数据的地方

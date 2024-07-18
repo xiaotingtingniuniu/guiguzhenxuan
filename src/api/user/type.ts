@@ -1,6 +1,6 @@
 export interface ResponseData {
-  code: number,
-  message: string,
+  code: number
+  message: string
   ok: boolean
 }
 
@@ -21,10 +21,10 @@ export type Roles = []
 //用户信息接口返回数据类型
 export interface UserInforResponseData extends ResponseData {
   data: {
-    routes:Routes,
-    buttons:Buttons,
-    roles:Roles,
-    name:string,
-    avatar:string
+    routes: Routes
+    buttons: Buttons
+    roles: Roles
+    name: string
+    avatar: string
   }
 }

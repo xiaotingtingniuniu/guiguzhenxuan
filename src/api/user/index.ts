@@ -15,17 +15,17 @@ import { LoginData, LoginResponseData, UserInforResponseData } from './type.ts'
 // export const reqUserInfor = () =>
 //   http.get<any, UserInforResponseData>(API.USERINFOR_URL)
 
-
-
 //项目用户相关的请求地址
-enum API{
+enum API {
   LOGIN_URL = '/admin/acl/index/login',
   USERINFOR_URL = '/admin/acl/index/info',
-  LOGOUT_URL = '/admin/acl/index/logout'
+  LOGOUT_URL = '/admin/acl/index/logout',
 }
 //登录接口
-export const reqLogin = (data:LoginData)=>http.post<any,LoginResponseData>(API.LOGIN_URL,data)
+export const reqLogin = (data: LoginData) =>
+  http.post<any, LoginResponseData>(API.LOGIN_URL, data)
 //获取用户信息接口
-export const reqUserInfor = ()=>http.get<any,UserInforResponseData>(API.USERINFOR_URL);
+export const reqUserInfor = () =>
+  http.get<any, UserInforResponseData>(API.USERINFOR_URL)
 //登出接口
-export const reqLogout = ()=>http.post<any,any>(API.LOGOUT_URL);
+export const reqLogout = () => http.post<any, any>(API.LOGOUT_URL)

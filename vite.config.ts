@@ -12,7 +12,7 @@ export default defineConfig(({ command, mode }): any => {
     plugins: [
       vue(),
       viteMockServe({
-        enable: command === 'serve',//保证开发阶段可以使用mock接口
+        enable: command === 'serve', //保证开发阶段可以使用mock接口
       }),
     ],
     resolve: {
@@ -30,17 +30,17 @@ export default defineConfig(({ command, mode }): any => {
       },
     },
     //代理跨域
-    server:{
-      proxy:{
-        [env.VITE_APP_BASE_API]:{
+    server: {
+      proxy: {
+        [env.VITE_APP_BASE_API]: {
           //获取数据的服务器地址设置
           target: env.VITE_SERVE,
           //需要代理跨域
           changeOrigin: true,
           //路径重写
-          rewrite: (path:any) => path.replace(/^\/api/, ''),
-        }
-      }
-    }
+          rewrite: (path: any) => path.replace(/^\/api/, ''),
+        },
+      },
+    },
   }
 })
