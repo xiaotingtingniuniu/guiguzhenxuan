@@ -2,6 +2,7 @@
 // 引入项目中全部的全局组件
 import Test from '../components/Test/index.vue'
 import Test1 from '../components/Test1/index.vue'
+import Category from '../components/Category/index.vue'
 //注册element-plus的Icon为全局组件
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 console.log('ElementPlusIconsVue', ElementPlusIconsVue)
@@ -9,6 +10,7 @@ console.log('ElementPlusIconsVue', ElementPlusIconsVue)
 const allGloablComponent: any = {
   Test,
   Test1,
+  Category
 }
 console.log('allGloablComponent', allGloablComponent)
 //对外暴露插件对象
