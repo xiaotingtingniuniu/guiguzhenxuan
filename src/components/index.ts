@@ -10,7 +10,7 @@ console.log('ElementPlusIconsVue', ElementPlusIconsVue)
 const allGloablComponent: any = {
   Test,
   Test1,
-  Category
+  Category,
 }
 console.log('allGloablComponent', allGloablComponent)
 //对外暴露插件对象
