@@ -8,6 +8,7 @@
           style="width: 240px"
           v-model="categoryStore.category1Id"
           @change="selectChange1"
+          :disabled="!scene"
         >
           <el-option
             :label="item.name"
@@ -23,6 +24,7 @@
           style="width: 240px"
           v-model="categoryStore.category2Id"
           @change="selectChange2"
+          :disabled="!scene"
         >
           <el-option
             :label="item.name"
@@ -38,6 +40,7 @@
           style="width: 240px"
           v-model="categoryStore.category3Id"
           @change="selectChange3"
+          :disabled="!scene"
         >
           <el-option
             :label="item.name"
@@ -55,6 +58,8 @@
 import { onMounted } from 'vue'
 //引入分类小仓库
 import useCategoryStore from '../../store/modules/category.ts'
+//接收父组件传值
+defineProps(['scene'])
 const categoryStore = useCategoryStore()
 console.log('categoryStore', categoryStore)
 onMounted(() => {
