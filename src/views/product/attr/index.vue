@@ -182,7 +182,6 @@ const getAttr = async () => {
   )
   if (result.code === 200) {
     attrArr.value = result.data
-  } else {
   }
 }
 //添加属性按钮点击事件
