@@ -1,6 +1,6 @@
 //属性相关接口
 import http from '../../../utils/http'
-import { GetCategoryResponseData,AttrResponseData,Attr } from './type.ts'
+import { GetCategoryResponseData, AttrResponseData, Attr } from './type.ts'
 //属性管理模块接口地址
 enum API {
   //获取一级分类的接口地址
@@ -14,7 +14,7 @@ enum API {
   //添加或修改已有属性的接口
   ADDORUPDATEATTR_URL = '/admin/product/saveAttrInfo',
   //删除属性接口
-  DELETEATTR_URL = '/admin/product/deleteAttr/'
+  DELETEATTR_URL = '/admin/product/deleteAttr/',
 }
 //获取一级分类接口
 export const reqGetCategory1 = () =>
@@ -30,9 +30,17 @@ export const reqGetCategory3 = (category2Id: number | string) =>
     `${API.GETCATEGORY3_URL}${category2Id}`,
   )
 //获取已有的属性与属性值接口
-export const reqAttr = (category1Id: number|string, category2Id: number|string, category3Id: number|string) =>
-  http.get<any, AttrResponseData>(`${API.ATTR_URL}${category1Id}/${category2Id}/${category3Id}`)
+export const reqAttr = (
+  category1Id: number | string,
+  category2Id: number | string,
+  category3Id: number | string,
+) =>
+  http.get<any, AttrResponseData>(
+    `${API.ATTR_URL}${category1Id}/${category2Id}/${category3Id}`,
+  )
 //添加或修改已有属性的接口
-export const reqAddorUpdateAttr = (data:Attr)=>http.post<any,any>(API.ADDORUPDATEATTR_URL,data);
+export const reqAddorUpdateAttr = (data: Attr) =>
+  http.post<any, any>(API.ADDORUPDATEATTR_URL, data)
 //删除属性接口
-export const reqDeleteAttr = (attrId:number|undefined)=>http.delete(`${API.DELETEATTR_URL}${attrId}`)
+export const reqDeleteAttr = (attrId: number | undefined) =>
+  http.delete(`${API.DELETEATTR_URL}${attrId}`)
