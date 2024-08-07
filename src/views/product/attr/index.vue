@@ -2,7 +2,7 @@
   <!-- 三级分类全局组件 -->
   <Category :scene="scene"></Category>
   <el-card style="margin: 20px 0">
-    <div v-if="scene">
+    <div v-show="scene==0">
       <el-button
         type="primary"
         size="default"
@@ -61,7 +61,7 @@
         </el-table-column>
       </el-table>
     </div>
-    <div v-else>
+    <div v-show="scene==1">
       <!-- 展示添加属性与修改数据的结构 -->
       <el-form :inline="true">
         <el-form-item label="属性名称">
@@ -147,7 +147,7 @@ const categoryStore = useCategoryStore()
 //存储获取到的属性和属性值数据
 const attrArr = ref<AttrList>([])
 //定义card组件内容切换的变量
-const scene = ref<boolean>(true)
+const scene = ref<number>(0)
 //存储新增属性的数据
 const attrParams = reactive<Attr>({
   attrName: '', //新增属性的名字
@@ -198,7 +198,7 @@ const addAttr = () => {
     categoryLevel: 3, //分类的级别为3级
   })
   //切换场景
-  scene.value = false
+  scene.value = 1
 }
 //切换场景后的添加属性值按钮
 const addAttrHandler = () => {
@@ -218,7 +218,7 @@ const addOrUpdateAttr = async () => {
   //添加属性｜修改已有属性已经成功
   if (result.code === 200) {
     //切换场景
-    scene.value = true
+    scene.value = 0
     ElMessage({
       type: 'success',
       message: attrParams.id ? '修改成功' : '添加成功',
@@ -237,7 +237,7 @@ const upDateAttr = (row: AttrValue) => {
   //将选中的数据回填（需要使用深拷贝将row 拷贝一份再与attrParams合并，不然如果使用前拷贝，当改变了attrParams中的某个值，且取消了，那么row=>attrArr也会跟着改变，因为他们指向一个地址）
   Object.assign(attrParams, JSON.parse(JSON.stringify(row)))
   //切换场景
-  scene.value = false
+  scene.value = 1
 }
 //属性删除按钮后 弹出prop 点击确定按钮
 const confirmDelete = (row: AttrValue) => {
@@ -271,7 +271,7 @@ const save = () => {
 }
 //取消按钮的回调
 const cancel = () => {
-  scene.value = true
+  scene.value = 0
 }
 //input失去焦点时，转换为只读的div
 const toLook = (row: AttrValue, $index: number) => {
