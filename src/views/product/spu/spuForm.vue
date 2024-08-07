@@ -13,8 +13,13 @@
         <el-input type="textarea" placeholder="请你输入描述"></el-input>
       </el-form-item>
       <el-form-item label="SPU照片">
-        <el-upload v-model:file-list="fileList" action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
-          list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+        <el-upload
+          v-model:file-list="fileList"
+          action="https://run.mocky.io/v3/9d059bf9-4660-45f2-925d-ce80ad6c4d15"
+          list-type="picture-card"
+          :on-preview="handlePictureCardPreview"
+          :on-remove="handleRemove"
+        >
           <el-icon>
             <Plus />
           </el-icon>
@@ -27,9 +32,21 @@
         <el-select placeholder="暂无数据可选择" style="width: 240px">
           <el-option>a</el-option>
         </el-select>
-        <el-button type="primary" size="default" icon="Plus" style="margin-left:10px">添加销售属性</el-button>
-        <el-table border style="margin:10px 0">
-          <el-table-column label="序号" type="index" align="center" width="80"></el-table-column>
+        <el-button
+          type="primary"
+          size="default"
+          icon="Plus"
+          style="margin-left: 10px"
+        >
+          添加销售属性
+        </el-button>
+        <el-table border style="margin: 10px 0">
+          <el-table-column
+            label="序号"
+            type="index"
+            align="center"
+            width="80"
+          ></el-table-column>
           <el-table-column label="销售属性名" width="120"></el-table-column>
           <el-table-column label="销售属性值"></el-table-column>
           <el-table-column label="操作" width="120"></el-table-column>
@@ -37,17 +54,19 @@
       </el-form-item>
       <el-form-item>
         <el-button type="primary" size="default">保存</el-button>
-        <el-button type="primary" size="default" @click="cancel">取消</el-button>
+        <el-button type="primary" size="default" @click="cancel">
+          取消
+        </el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
-<script setup lang='ts'>
-let $emit = defineEmits(['changeScene']);
+<script setup lang="ts">
+let $emit = defineEmits(['changeScene'])
 //子组件点击取消按钮，通知父组件切换场景为0，显示已有的SPU数据
-const cancel = ()=>{
-  $emit('changeScene',0);
+const cancel = () => {
+  $emit('changeScene', 0)
 }
 </script>
 

@@ -2,7 +2,7 @@
   <!-- 三级分类全局组件 -->
   <Category :scene="scene"></Category>
   <el-card style="margin: 20px 0">
-    <div v-show="scene==0">
+    <div v-show="scene == 0">
       <el-button
         type="primary"
         size="default"
@@ -61,7 +61,7 @@
         </el-table-column>
       </el-table>
     </div>
-    <div v-show="scene==1">
+    <div v-show="scene == 1">
       <!-- 展示添加属性与修改数据的结构 -->
       <el-form :inline="true">
         <el-form-item label="属性名称">
