@@ -39,7 +39,7 @@ const useUserStore = defineStore('User', {
         return 'ok'
       } else {
         //登录失败 返回一个错误的Promise
-        return Promise.reject(new Error(result.data))
+        return Promise.reject(new Error('登录失败'))
       }
     },
     //获取用户信息
