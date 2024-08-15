@@ -10,10 +10,12 @@ import './style/index.scss'
 //引入路由
 import router from './router/index'
 import store from './store/index'
+//引入svg矢量图
+import 'virtual:svg-icons-register'
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn, //element-plus 国际化配置
-})
+});
 //安装自定义的全局插件
 app.use(globalComponent)
 //注册路由
