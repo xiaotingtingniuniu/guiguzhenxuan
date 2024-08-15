@@ -4,7 +4,7 @@ import Test from '../components/Test/index.vue'
 import Test1 from '../components/Test1/index.vue'
 import Category from '../components/Category/index.vue'
 //引入svg组件
-import SvgIcon from '../components/SvgIcon/index.vue';
+import SvgIcon from '../components/SvgIcon/index.vue'
 //注册element-plus的Icon为全局组件
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 console.log('ElementPlusIconsVue', ElementPlusIconsVue)

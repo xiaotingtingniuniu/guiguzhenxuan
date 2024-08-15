@@ -15,7 +15,7 @@ import 'virtual:svg-icons-register'
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn, //element-plus 国际化配置
-});
+})
 //安装自定义的全局插件
 app.use(globalComponent)
 //注册路由

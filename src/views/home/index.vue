@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <div class="card-div">
-      <img :src="userStore.avatar" alt="" class="img">
+      <img :src="userStore.avatar" alt="" class="img" />
       <div class="right">
         <h2>{{ getTime() }}好{{ userStore.userName }}</h2>
         <span>硅谷甄选运营平台</span>
@@ -15,11 +15,11 @@
 
 <script setup lang="ts">
 //获取user小仓库
-import useUserStore from '../../store/modules/user';
+import useUserStore from '../../store/modules/user'
 //获取时间方法
-import getTime from '../../utils/time';
-const userStore = useUserStore();
-console.log('userStore', userStore);
+import getTime from '../../utils/time'
+const userStore = useUserStore()
+console.log('userStore', userStore)
 </script>
 
 <style scoped lang="scss">
@@ -45,7 +45,7 @@ console.log('userStore', userStore);
     }
   }
 }
-.bottom{
+.bottom {
   display: flex;
   justify-content: center;
 }
