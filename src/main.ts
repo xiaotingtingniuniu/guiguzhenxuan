@@ -12,6 +12,8 @@ import router from './router/index'
 import store from './store/index'
 //引入svg矢量图
 import 'virtual:svg-icons-register'
+//element-plus 暗黑模式需要的样式
+import 'element-plus/theme-chalk/dark/css-vars.css'
 const app = createApp(App)
 app.use(ElementPlus, {
   locale: zhCn, //element-plus 国际化配置

@@ -84,6 +84,7 @@ export default {
   }
 
   .layout_right {
+    width: calc(100vh - $base-menu-width);
     flex: auto;
 
     .layout_tab {

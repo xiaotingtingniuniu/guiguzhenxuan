@@ -1,7 +1,21 @@
 <template>
   <el-button size="small" icon="Refresh" circle @click="updateRefresh" />
   <el-button size="small" icon="FullScreen" circle @click="fullScreen" />
-  <el-button size="small" icon="Setting" circle />
+  <el-popover placement="bottom" title="主题设置" trigger="hover" :width="300">
+    <template #reference>
+      <el-button size="small" icon="Setting" circle/>
+    </template>
+    <!-- 表单 -->
+    <el-form>
+      <el-form-item label="主题颜色">
+        <el-color-picker v-model="color"  @change="setColor" show-alpha :predefine="predefineColors" size="small" :teleported="false"/>
+      </el-form-item>
+      <el-form-item label="暗黑模式">
+        <el-switch v-model="dark" @change="changeDark" class="mt-2" style="margin-left: 24px" size="small" inline-prompt active-icon="Sunny"
+          inactive-icon="Moon" />
+      </el-form-item>
+    </el-form>
+  </el-popover>
   <img :src="userStore.avatar" alt="" class="head_sculpture" />
   <!-- 下拉菜单 -->
   <el-dropdown>
@@ -25,6 +39,8 @@ import useLayOutSettingStore from '../../../store/modules/setting'
 //获取用户小仓库
 import useUserStore from '../../../store/modules/user'
 import { useRouter, useRoute } from 'vue-router'
+import { ref } from 'vue'
+import Color from 'color'
 //获取路由器对象
 const $router = useRouter()
 //获取路由对象
@@ -32,6 +48,26 @@ const $route = useRoute()
 const layOutSettingStore = useLayOutSettingStore()
 console.log('layOutSettingStore', layOutSettingStore)
 const userStore = useUserStore()
+//取色器
+const color = ref<string>('')
+const predefineColors = ref([
+  '#ff4500',
+  '#ff8c00',
+  '#ffd700',
+  '#90ee90',
+  '#00ced1',
+  '#1e90ff',
+  '#c71585',
+  'rgba(255, 69, 0, 0.68)',
+  'rgb(255, 120, 0)',
+  'hsv(51, 100, 98)',
+  'hsva(120, 40, 94, 0.5)',
+  'hsl(181, 100%, 37%)',
+  'hsla(209, 100%, 56%, 0.73)',
+  '#c7158577',
+])
+// 暗黑模式 收集开关的数据
+const dark = ref<boolean>(true);
 //点击刷新按钮
 const updateRefresh = () => {
   layOutSettingStore.refresh = !layOutSettingStore.refresh
@@ -60,6 +96,22 @@ const logout = async () => {
   //跳转到登录页面，并且从哪里来的，还可以回到哪里去
   $router.push({ path: '/login', query: { redirect: $route.path } })
 }
+//switch开关状态发生变化时的回调函数(暗黑模式时的切换)
+const changeDark = () => {
+  const html = document.documentElement;
+  dark.value?html.className ='dark':html.className='';
+}
+//取色器的颜色改变时的回调（主题颜色设置）
+const setColor = (value:string) =>{
+  //通知js修改跟节点的样式对象的属性与属性值
+  const html = document.documentElement;
+  html.style.setProperty('--el-color-primary',value);
+  html.style.setProperty('--el-color-primary-dark-2',value);
+  for(let i=1; i<10; i++){
+    html.style.setProperty(`--el-color-primary-light-${i}`,Color(value).alpha(`${(1-i*0.1).toFixed(1)}`))
+  }
+}
+
 </script>
 <script lang="ts">
 export default {

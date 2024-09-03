@@ -25,12 +25,12 @@ export default {
   height: 100%;
   display: flex;
   justify-content: space-between;
-  background-image: linear-gradient(
-    to right,
-    rgb(249, 247, 247),
-    rgb(246, 224, 224),
-    rgb(249, 211, 211)
-  );
+  // background-image: linear-gradient(
+  //   to right,
+  //   rgb(249, 247, 247),
+  //   rgb(246, 224, 224),
+  //   rgb(249, 211, 211)
+  // );
 
   .left {
     display: flex;
