@@ -59,8 +59,8 @@ import { onMounted } from 'vue'
 //引入分类小仓库
 import useCategoryStore from '../../store/modules/category.ts'
 //接收父组件传值
-const sceneProps = defineProps(['scene']);
-console.log('sceneProps',sceneProps);
+const sceneProps = defineProps(['scene'])
+console.log('sceneProps', sceneProps)
 const categoryStore = useCategoryStore()
 console.log('categoryStore', categoryStore)
 onMounted(() => {

@@ -3,16 +3,31 @@
   <el-button size="small" icon="FullScreen" circle @click="fullScreen" />
   <el-popover placement="bottom" title="主题设置" trigger="hover" :width="300">
     <template #reference>
-      <el-button size="small" icon="Setting" circle/>
+      <el-button size="small" icon="Setting" circle />
     </template>
     <!-- 表单 -->
     <el-form>
       <el-form-item label="主题颜色">
-        <el-color-picker v-model="color"  @change="setColor" show-alpha :predefine="predefineColors" size="small" :teleported="false"/>
+        <el-color-picker
+          v-model="color"
+          @change="setColor"
+          show-alpha
+          :predefine="predefineColors"
+          size="small"
+          :teleported="false"
+        />
       </el-form-item>
       <el-form-item label="暗黑模式">
-        <el-switch v-model="dark" @change="changeDark" class="mt-2" style="margin-left: 24px" size="small" inline-prompt active-icon="Sunny"
-          inactive-icon="Moon" />
+        <el-switch
+          v-model="dark"
+          @change="changeDark"
+          class="mt-2"
+          style="margin-left: 24px"
+          size="small"
+          inline-prompt
+          active-icon="Sunny"
+          inactive-icon="Moon"
+        />
       </el-form-item>
     </el-form>
   </el-popover>
@@ -67,7 +82,7 @@ const predefineColors = ref([
   '#c7158577',
 ])
 // 暗黑模式 收集开关的数据
-const dark = ref<boolean>(true);
+const dark = ref<boolean>(true)
 //点击刷新按钮
 const updateRefresh = () => {
   layOutSettingStore.refresh = !layOutSettingStore.refresh
@@ -98,20 +113,22 @@ const logout = async () => {
 }
 //switch开关状态发生变化时的回调函数(暗黑模式时的切换)
 const changeDark = () => {
-  const html = document.documentElement;
-  dark.value?html.className ='dark':html.className='';
+  const html = document.documentElement
+  dark.value ? (html.className = 'dark') : (html.className = '')
 }
 //取色器的颜色改变时的回调（主题颜色设置）
-const setColor = (value:string) =>{
+const setColor = (value: string) => {
   //通知js修改跟节点的样式对象的属性与属性值
-  const html = document.documentElement;
-  html.style.setProperty('--el-color-primary',value);
-  html.style.setProperty('--el-color-primary-dark-2',value);
-  for(let i=1; i<10; i++){
-    html.style.setProperty(`--el-color-primary-light-${i}`,Color(value).alpha(`${(1-i*0.1).toFixed(1)}`))
+  const html = document.documentElement
+  html.style.setProperty('--el-color-primary', value)
+  html.style.setProperty('--el-color-primary-dark-2', value)
+  for (let i = 1; i < 10; i++) {
+    html.style.setProperty(
+      `--el-color-primary-light-${i}`,
+      Color(value).alpha(`${(1 - i * 0.1).toFixed(1)}`),
+    )
   }
 }
-
 </script>
 <script lang="ts">
 export default {

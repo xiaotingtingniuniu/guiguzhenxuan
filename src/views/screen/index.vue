@@ -14,9 +14,9 @@
         </div>
         <div class="center">
           <!-- 地图组件 -->
-           <Map class="map"></Map>
+          <Map class="map"></Map>
           <!-- 折线组件 -->
-           <Line class="line"></Line>
+          <Line class="line"></Line>
         </div>
         <div class="right">
           <!-- 排行榜组件 -->
@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref} from 'vue'
+import { onMounted, ref } from 'vue'
 //引入顶部子组件
 import Top from './components/top/index.vue'
 //引入左侧三个子组件
@@ -47,19 +47,19 @@ import Rank from './components/rank/index.vue'
 import Year from './components/year/index.vue'
 import Couter from './components/couter/index.vue'
 //获取数据大屏展示内容盒子的DOM元素
-const screen = ref();
-onMounted(()=>{
-  screen.value.style.transform=`scale(${getScale()}) translate(-50%,-50%)`
-});
+const screen = ref()
+onMounted(() => {
+  screen.value.style.transform = `scale(${getScale()}) translate(-50%,-50%)`
+})
 //定义大屏锁房的比例函数
-const getScale = (w:number=1920,h:number=1080)=>{
-  const ww = window.innerWidth/w;
-  const wh = window.innerHeight/h;
-  return ww<wh?ww:wh
+const getScale = (w: number = 1920, h: number = 1080) => {
+  const ww = window.innerWidth / w
+  const wh = window.innerHeight / h
+  return ww < wh ? ww : wh
 }
 //监听视口变化
-window.onresize=()=>{
-  screen.value.style.transform=`scale(${getScale()}) translate(-50%,-50%)`
+window.onresize = () => {
+  screen.value.style.transform = `scale(${getScale()}) translate(-50%,-50%)`
 }
 </script>
 
@@ -69,55 +69,55 @@ window.onresize=()=>{
   width: 100vw; //视口宽度
   height: 100vh; //视口高度
   background: url('../../assets/screen/images/bg.png') no-repeat;
-  background-size:cover ;
-  .screen{
+  background-size: cover;
+  .screen {
     width: 1920px;
     height: 1080px;
     position: fixed;
     transform-origin: left top;
-    left:50%;
-    top:50%;
-    .bottom{
+    left: 50%;
+    top: 50%;
+    .bottom {
       display: flex;
-      .left{
-        flex:1;
+      .left {
+        flex: 1;
         height: 1040px;
-        display:flex;
-        flex-direction: column;
-        .tourist{
-          flex:1.2;
-          margin-top:10px;
-        }
-        .sex{
-          flex:1;
-        }
-        .age{
-          flex:1;
-        }
-      }
-      .right{
-        flex:1;
         display: flex;
         flex-direction: column;
-        .rank{
-          flex:1.5
+        .tourist {
+          flex: 1.2;
+          margin-top: 10px;
         }
-        .year{
-          flex:1
+        .sex {
+          flex: 1;
         }
-        .couter{
-          flex:1;
+        .age {
+          flex: 1;
         }
       }
-      .center{
-        flex:1.8;
+      .right {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        .map{
-          flex:4;
+        .rank {
+          flex: 1.5;
         }
-        .line{
-          flex:1;
+        .year {
+          flex: 1;
+        }
+        .couter {
+          flex: 1;
+        }
+      }
+      .center {
+        flex: 1.8;
+        display: flex;
+        flex-direction: column;
+        .map {
+          flex: 4;
+        }
+        .line {
+          flex: 1;
         }
       }
     }

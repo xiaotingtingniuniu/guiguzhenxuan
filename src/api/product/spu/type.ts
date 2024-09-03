@@ -29,12 +29,12 @@ export interface SpuPoster {
 export type SpuPosterList = SpuPoster[]
 //已有的spu销售属性值
 export interface SpuSaleAttrValue {
-  baseSaleAttrId: number | string//销售属性id
+  baseSaleAttrId: number | string //销售属性id
   createTime?: string
   id?: number
   isChecked?: string
   saleAttrName?: string
-  saleAttrValueName?: string//销售属性值
+  saleAttrValueName?: string //销售属性值
   spuId?: number
   updateTime?: string
 }
@@ -42,26 +42,26 @@ export interface SpuSaleAttrValue {
 export type SpuSaleAttrValueList = SpuSaleAttrValue[]
 //spu销售属性
 export interface SpuSaleAttr {
-  baseSaleAttrId: number | string//销售属性id
+  baseSaleAttrId: number | string //销售属性id
   createTime?: string
   id?: number
-  saleAttrName: string//销售属性名字
+  saleAttrName: string //销售属性名字
   spuId?: number
-  spuSaleAttrValueList: null | SpuSaleAttrValueList//销售属性值数组
+  spuSaleAttrValueList: null | SpuSaleAttrValueList //销售属性值数组
   updateTime?: string
   flag?: boolean
   saleAttrValue?: string
-  saleIdAndValueId?:string
+  saleIdAndValueId?: string
 }
 //SPU数据的ts类型:需要修改
 export interface Record {
-  id?: number|string //spu的id
+  id?: number | string //spu的id
   spuName: string //spu的名字
   description: string //spu的描述
   category3Id: number | string //三级分类的id
   tmId: number | string //品牌的id
   spuSaleAttrList: SpuSaleAttrValueList
-  spuImageList: SpuImageList//商品图片的数据
+  spuImageList: SpuImageList //商品图片的数据
   spuPosterList?: SpuPosterList
 }
 //数组:元素都是已有SPU数据类型
@@ -112,28 +112,28 @@ export interface AllSaleAttrListResponseData extends ResponseData {
 
 // sku的平台属性
 export interface Attr {
-  attrId: string | number,//平台属性id
-  valueId: string | number,//属性值的id
+  attrId: string | number //平台属性id
+  valueId: string | number //属性值的id
 }
 // sku的销售属性
 export interface saleAttr {
-  saleAttrId: string | number,//销售属性id
-  saleAttrValueId: string | number,//属性值id
+  saleAttrId: string | number //销售属性id
+  saleAttrValueId: string | number //属性值id
 }
 //新增一个sku的入参
 export interface SkuInfo {
-  category3Id: string | number,//三级分类的ID
-  spuId: string | number,//已有的SPU的ID
-  tmId: string | number,//spu品牌的id
-  skuName: string,//sku名字
-  price: number | string,//sku价格
-  weight: string | number,//sku重量
-  skuDesc: string,//sku的描述
-  skuAttrValueList: Attr[],//平台属性
-  skuSaleAttrValueList: saleAttr[],//销售属性
-  skuDefaultImg: string,//sku图片地址
+  category3Id: string | number //三级分类的ID
+  spuId: string | number //已有的SPU的ID
+  tmId: string | number //spu品牌的id
+  skuName: string //sku名字
+  price: number | string //sku价格
+  weight: string | number //sku重量
+  skuDesc: string //sku的描述
+  skuAttrValueList: Attr[] //平台属性
+  skuSaleAttrValueList: saleAttr[] //销售属性
+  skuDefaultImg: string //sku图片地址
 }
 //获取sku的数据接口类型
-export interface SkuInforResponseData extends ResponseData{
-  data:SkuInfo[]
+export interface SkuInforResponseData extends ResponseData {
+  data: SkuInfo[]
 }

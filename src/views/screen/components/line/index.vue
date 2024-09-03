@@ -4,19 +4,18 @@
       <p class="title">未来七天游客数量趋势图</p>
       <p class="bg"></p>
     </div>
-    <div class="charts" ref="charts">
-    </div>
+    <div class="charts" ref="charts"></div>
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import * as echarts from 'echarts'
 import { onMounted, ref } from 'vue'
 //获取dom元素
-const charts = ref();
+const charts = ref()
 onMounted(() => {
   //初始化chart
-  const myCharts = echarts.init(charts.value);
+  const myCharts = echarts.init(charts.value)
   //设置配置项
   myCharts.setOption({
     //标题组件
@@ -24,8 +23,8 @@ onMounted(() => {
       text: '(访问量)',
       top: 10,
       textStyle: {
-        color: '#fff'
-      }
+        color: '#fff',
+      },
     },
     //x|y轴
     xAxis: {
@@ -33,17 +32,17 @@ onMounted(() => {
       boundaryGap: false,
       //x轴的分割线是否展示
       splitLine: {
-        show: false
+        show: false,
       },
       //展示y轴轴线
       axisLine: {
-        show: true
+        show: true,
       },
       //展示y轴轴线刻度
       axisTick: {
-        show: true
+        show: true,
       },
-      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+      data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
     },
     yAxis: {
       //y轴的分割线是否展示
@@ -52,18 +51,18 @@ onMounted(() => {
       },
       //展示y轴轴线
       axisLine: {
-        show: true
+        show: true,
       },
       //展示y轴轴线刻度
       axisTick: {
-        show: true
-      }
+        show: true,
+      },
     },
     grid: {
       left: 40,
       top: 50,
       right: 10,
-      bottom: 20
+      bottom: 20,
     },
     series: [
       {
@@ -79,16 +78,21 @@ onMounted(() => {
             y: 0,
             x2: 0,
             y2: 1,
-            colorStops: [{
-              offset: 0, color: 'skyblue' // 0% 处的颜色
-            }, {
-              offset: 1, color: 'blue' // 100% 处的颜色
-            }],
-            global: false // 缺省为 false
-          }
-        }
-      }
-    ]
+            colorStops: [
+              {
+                offset: 0,
+                color: 'skyblue', // 0% 处的颜色
+              },
+              {
+                offset: 1,
+                color: 'blue', // 100% 处的颜色
+              },
+            ],
+            global: false, // 缺省为 false
+          },
+        },
+      },
+    ],
   })
 })
 </script>
@@ -98,7 +102,8 @@ onMounted(() => {
   width: calc(100% - 40px);
   background-color: antiquewhite;
   height: 100%;
-  background: url('../../../../assets/screen/images/dataScreen-main-cb.png') no-repeat;
+  background: url('../../../../assets/screen/images/dataScreen-main-cb.png')
+    no-repeat;
   background-size: 100% 100%;
   margin: 0 20px;
 
@@ -113,7 +118,8 @@ onMounted(() => {
     .bg {
       width: 68px;
       height: 7px;
-      background: url('../../../../assets/screen/images/dataScreen-title.png') no-repeat;
+      background: url('../../../../assets/screen/images/dataScreen-title.png')
+        no-repeat;
       background-size: 100% 100%;
       margin-top: 10px;
     }
