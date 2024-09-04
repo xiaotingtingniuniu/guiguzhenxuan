@@ -6,7 +6,7 @@ export interface UserState {
   menuRoutes: RouteRecordRaw[]
   userName: string
   avatar: string
-  buttons:string[]
+  buttons: string[]
 }
 export interface categoryState {
   category1Data: GetCategoryArr

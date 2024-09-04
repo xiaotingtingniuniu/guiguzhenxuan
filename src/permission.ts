@@ -51,7 +51,7 @@ router.beforeEach(async (to: any, from: any, next: any) => {
         try {
           //获取用户信息
           await userStore.userInfor()
-          next({...to})
+          next({ ...to })
         } catch (error) {
           //token过期或一些其他问题
           //退出登录->用户相关的数据清空

@@ -10,9 +10,9 @@
         icon="Plus"
         :disabled="!categoryStore.category3Id"
         @click="addAttr"
-        v-has="`btn.Attr.add`">
+        v-has="`btn.Attr.add`"
       >
-        添加属性
+        > 添加属性
       </el-button>
       <el-table
         :data="attrArr"
