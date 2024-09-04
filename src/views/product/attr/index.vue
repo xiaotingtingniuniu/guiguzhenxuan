@@ -3,12 +3,14 @@
   <Category :scene="scene"></Category>
   <el-card style="margin: 20px 0">
     <div v-show="scene == 0">
+      <!-- 自定义指令 v-has 是全局指令-->
       <el-button
         type="primary"
         size="default"
         icon="Plus"
         :disabled="!categoryStore.category3Id"
         @click="addAttr"
+        v-has="`btn.Attr.add`">
       >
         添加属性
       </el-button>
@@ -143,6 +145,7 @@ import type {
   AttrValue,
 } from '../../../api/product/attr/type.ts'
 import { ElMessage } from 'element-plus'
+
 const categoryStore = useCategoryStore()
 //存储获取到的属性和属性值数据
 const attrArr = ref<AttrList>([])

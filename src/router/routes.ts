@@ -1,4 +1,5 @@
-export const routes = [
+//常量路由：大家都能访问的路由
+export const constantRoute = [
   {
     path: '/login',
     component: () => import('../views/login/index.vue'),
@@ -23,7 +24,6 @@ export const routes = [
       {
         path: '/home',
         component: () => import('@/views/home/index.vue'),
-        name: 'home',
         meta: {
           title: '首页',
           hidden: false,
@@ -42,6 +42,19 @@ export const routes = [
       icon: 'FullScreen',
     },
   },
+  {
+    path: '/404',
+    component: () => import('../views/404/index.vue'),
+    name: '404',
+    meta: {
+      title: '404页',
+      hidden: true,
+      icon: 'Grid',
+    },
+  },
+]
+//异步路由
+export const asyncRoute = [
   {
     path: '/acl',
     component: () => import('@/layout/index.vue'),
@@ -138,24 +151,16 @@ export const routes = [
       },
     ],
   },
-  {
-    path: '/404',
-    component: () => import('../views/404/index.vue'),
-    name: '404',
-    meta: {
-      title: '404页',
-      hidden: true,
-      icon: 'Grid',
-    },
-  },
-  {
-    path: '/:pathMatch(.*)*', //匹配不到的时候，就会重定向到404路径
-    redirect: '/404',
-    name: 'any',
-    meta: {
-      title: '任意路径',
-      hidden: true,
-      icon: 'Grid',
-    },
-  },
 ]
+
+//任意路由
+export const anyRoute = {
+  path: '/:pathMatch(.*)*', //匹配不到的时候，就会重定向到404路径
+  redirect: '/404',
+  name: 'any',
+  meta: {
+    title: '任意路径',
+    hidden: true,
+    icon: 'Grid',
+  },
+}

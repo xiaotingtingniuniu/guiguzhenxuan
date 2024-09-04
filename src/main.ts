@@ -39,5 +39,8 @@ axios({
 **/
 //引入路由鉴权文件
 import './permission'
+//引入自定义指令文件
+import {isHasButton} from './directive/has'
+isHasButton(app);
 app.mount('#app')
 console.log('环境', import.meta.env)
