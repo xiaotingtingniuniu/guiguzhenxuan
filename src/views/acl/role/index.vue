@@ -45,7 +45,7 @@
         show-overflow-tooltip
       ></el-table-column>
       <el-table-column label="操作" width="300" align="center">
-        <template #="{ row, $index }">
+        <template #="{ row }">
           <el-button
             type="primary"
             size="small"
@@ -275,6 +275,7 @@ const saveOrUpdateRole = async () => {
 }
 //自定义校验规则的回调
 const validateRoleName = (rule: any, value: any, callback: any) => {
+  console.log('rule',rule);
   console.log('value', value)
   if (value.trim().length >= 2) {
     callback()

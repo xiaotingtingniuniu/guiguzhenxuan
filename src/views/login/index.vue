@@ -61,6 +61,7 @@ const loginForm = reactive({ username: 'admin', password: '111111' })
 const loading = ref(false)
 //自定义校验username的函数
 const validateUsername = (rule: any, value: any, callback: any) => {
+  console.log('rule',rule);
   if (value.length >= 5) {
     callback()
   } else {
@@ -69,6 +70,7 @@ const validateUsername = (rule: any, value: any, callback: any) => {
 }
 //自定义校验password的函数
 const validatePassword = (rule: any, value: any, callback: any) => {
+  console.log('rule',rule);
   if (value.length >= 6 && value.length <= 15) {
     callback()
   } else {

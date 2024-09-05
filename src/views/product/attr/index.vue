@@ -28,10 +28,10 @@
         />
         <el-table-column prop="attrName" label="属性名称" width="120" />
         <el-table-column label="属性值名称">
-          <template #="{ row, $index }">
+          <template #="{ row }">
             <el-tag
               style="margin: 5px"
-              v-for="(item, index) in row.attrValueList"
+              v-for="(item) in row.attrValueList"
               :key="item.id"
             >
               {{ item.valueName }}
@@ -40,7 +40,7 @@
         </el-table-column>
         <el-table-column label="操作" width="120">
           <!-- row:已有的属性对象 -->
-          <template #="{ row, $index }">
+          <template #="{ row }">
             <el-button
               icon="Edit"
               type="primary"
@@ -106,7 +106,7 @@
           </template>
         </el-table-column>
         <el-table-column label="操作">
-          <template #="{ row, $index }">
+          <template #="{ $index }">
             <el-button
               icon="Delete"
               type="primary"

@@ -78,7 +78,7 @@
           show-overflow-tooltip
         ></el-table-column>
         <el-table-column label="操作" width="300" align="center">
-          <template #="{ row, $index }">
+          <template #="{ row }">
             <el-button
               type="primary"
               size="small"
@@ -234,7 +234,6 @@ import {
   UserResponseData,
 } from '../../../api/acl/user/type'
 import { ElMessage } from 'element-plus'
-import useUserStore from '../../../store/modules/user'
 import useLayOutSettingStore from '../../../store/modules/setting'
 //存储全部的用户数组
 const userArr = ref<Records>([])
@@ -389,6 +388,7 @@ const cancel = () => {
 
 //校验用户名字的回调函数
 const validatorUsername = (rule: any, value: any, callback: any) => {
+  console.log('rule',rule);
   if (value.trim().length >= 5) {
     callback()
   } else {
@@ -397,6 +397,7 @@ const validatorUsername = (rule: any, value: any, callback: any) => {
 }
 //校验用户昵称的回调函数
 const validatorName = (rule: any, value: any, callback: any) => {
+  console.log('rule',rule);
   if (value.trim().length >= 5) {
     callback()
   } else {
@@ -405,6 +406,7 @@ const validatorName = (rule: any, value: any, callback: any) => {
 }
 //校验密码的回调函数
 const validatorPassword = (rule: any, value: any, callback: any) => {
+  console.log('rule',rule);
   if (value.trim().length >= 6) {
     callback()
   } else {

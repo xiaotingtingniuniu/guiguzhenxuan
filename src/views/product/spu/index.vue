@@ -30,7 +30,7 @@
             show-overflow-tooltip
           ></el-table-column>
           <el-table-column label="操作">
-            <template #="{ row, $index }">
+            <template #="{ row }">
               <el-button
                 type="primary"
                 icon="Plus"
@@ -100,7 +100,7 @@
           <el-table-column prop="price" label="sku价格" width="200" />
           <el-table-column prop="weight" label="sku重量" />
           <el-table-column label="sku图片">
-            <template #="{ row, $index }">
+            <template #="{ row }">
               <img
                 :src="row.skuDefaultImg"
                 alt=""

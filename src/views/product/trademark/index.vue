@@ -20,7 +20,7 @@
         <template #="{ row }">
           <img
             :src="
-              row.logoUrl.substring(0, 7) === 'http://'
+              row.logoUrl?.substring(0, 7) === 'http://'
                 ? `${row.logoUrl}`
                 : `http://${row.logoUrl}`
             "
@@ -29,7 +29,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="updateTime" label="品牌操作">
-        <template #="{ row, $index }">
+        <template #="{ row }">
           <el-button
             type="primary"
             size="small"
@@ -120,7 +120,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, reactive, toRefs } from 'vue'
+import { onMounted, ref, reactive } from 'vue'
 import {
   reqHasTrademark,
   reqAddOrUpdateTrademark,
@@ -133,6 +133,10 @@ import {
 } from '../../../api/product/trademark/type'
 import type { UploadProps } from 'element-plus'
 import { ElMessage } from 'element-plus'
+onMounted(() => {
+  //获取已有品牌数据
+  getTrademark()
+})
 //分页器当前页数
 const pageNo = ref<number>(1)
 //分页器每页显示的条数
@@ -149,10 +153,6 @@ const form = reactive<Record>({
 })
 //获取form表单组件
 const formRef = ref()
-onMounted(() => {
-  //获取已有品牌数据
-  getTrademark()
-})
 const getTrademark = async (pager = 1) => {
   //不传参数时默认是访问第一页数据
   pageNo.value = pager
@@ -234,6 +234,7 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (
   response,
   uploadFile,
 ) => {
+  console.log('uploadFile',uploadFile);
   form.logoUrl = response.data
   //图片上传成功，清除掉对应的校验结果（红色的校验文字）
   formRef.value.clearValidate('logoUrl')
@@ -265,6 +266,7 @@ const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
 }
 //自定义校验规则的方法1
 const validateTmName = (rule: any, value: any, callback: any) => {
+  console.log('rule',rule)
   if (value.trim().length >= 2) {
     callback()
   } else {
@@ -273,6 +275,7 @@ const validateTmName = (rule: any, value: any, callback: any) => {
 }
 //自定义校验规则的方法2
 const validateLogoUrl = (rule: any, value: any, callback: any) => {
+  console.log('rule',rule);
   if (value) {
     callback()
   } else {

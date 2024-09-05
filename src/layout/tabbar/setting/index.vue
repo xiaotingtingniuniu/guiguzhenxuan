@@ -55,6 +55,8 @@ import useLayOutSettingStore from '../../../store/modules/setting'
 import useUserStore from '../../../store/modules/user'
 import { useRouter, useRoute } from 'vue-router'
 import { ref } from 'vue'
+//@ts-ignore
+//引入取色器
 import Color from 'color'
 //获取路由器对象
 const $router = useRouter()

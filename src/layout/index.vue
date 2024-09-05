@@ -40,10 +40,10 @@
 </template>
 
 <script setup lang="ts">
-import Logo from '@/layout/logo/index.vue'
-import Menu from '@/layout/menu/index.vue'
-import Main from '@/layout/main/index.vue'
-import Tabbar from '@/layout/tabbar/index.vue'
+import Logo from '../layout/logo/index.vue'
+import Menu from '../layout/menu/index.vue'
+import Main from '../layout/main/index.vue'
+import Tabbar from '../layout/tabbar/index.vue'
 //引入用户小仓库
 import useUserStore from '../store/modules/user'
 import useLayOutSettingStore from '../store/modules/setting'

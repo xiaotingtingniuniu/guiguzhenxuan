@@ -7,6 +7,7 @@
  * 用户登录成功：不可以访问login[指向首页]，其余路由都可以访问
  */
 import router from './router/index'
+//@ts-ignore
 //引入进度条
 import NProgress from 'nprogress'
 //引入进度条样式
@@ -21,6 +22,7 @@ import setting from './setting'
 NProgress.configure({ showSpinner: false })
 //全局前置守卫
 router.beforeEach(async (to: any, from: any, next: any) => {
+  console.log('from',from);
   //访问某一个路由之前的守卫
   //to：你将要访问哪个路由
   //from: 你从哪个路由而来
@@ -72,5 +74,7 @@ router.beforeEach(async (to: any, from: any, next: any) => {
 })
 //全局后置守卫
 router.afterEach((to: any, from: any) => {
+  console.log('to',to);
+  console.log('from',from);
   NProgress.done()
 })

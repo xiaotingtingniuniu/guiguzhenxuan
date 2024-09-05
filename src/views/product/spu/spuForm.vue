@@ -90,7 +90,7 @@
             width="120"
           ></el-table-column>
           <el-table-column label="销售属性值">
-            <template #="{ row, $index }">
+            <template #="{ row }">
               <div class="flex gap-2">
                 <el-tag
                   v-for="(tag, index) in row.spuSaleAttrValueList"
@@ -124,7 +124,7 @@
             </template>
           </el-table-column>
           <el-table-column label="操作" width="120">
-            <template #="{ row, $index }">
+            <template #="{ $index }">
               <el-button
                 type="primary"
                 size="small"
@@ -161,7 +161,6 @@ import type {
   SpuImageList,
   SpuSaleAttr,
   SpuSaleAttrListResponseData,
-  SpuSaleAttrValue,
   Trademark,
   TrademarkListResponseData,
 } from '../../../api/product/spu/type'

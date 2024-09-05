@@ -20,7 +20,7 @@
         show-overflow-tooltip
       ></el-table-column>
       <el-table-column label="图片" width="150px">
-        <template #="{ row, $index }">
+        <template #="{ row }">
           <img
             :src="row.skuDefaultImg"
             alt=""
@@ -39,7 +39,7 @@
         width="150px"
       ></el-table-column>
       <el-table-column label="操作" width="400px" fixed="right">
-        <template #="{ row, $index }">
+        <template #="{ row }">
           <el-button
             type="primary"
             size="small"
