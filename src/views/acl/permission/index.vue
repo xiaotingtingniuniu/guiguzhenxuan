@@ -90,10 +90,6 @@ import {
   reqDeleteMenu,
 } from '../../../api/acl/menu'
 import { ElMessage } from 'element-plus'
-onMounted(() => {
-  //获取所有菜单的数据
-  getAllPermission()
-})
 //添加或更新菜单携带的参数
 const menuData = reactive<MenuParams>({
   code: '',
@@ -104,7 +100,7 @@ const menuData = reactive<MenuParams>({
 //form表单组件
 const form = ref()
 const validateName = (rule: any, value: any, callback: any) => {
-  console.log('rule', rule)
+  console.log('rule',rule);
   if (value.trim().length >= 4) {
     callback()
   } else {
@@ -112,7 +108,7 @@ const validateName = (rule: any, value: any, callback: any) => {
   }
 }
 const validateCode = (rule: any, value: any, callback: any) => {
-  console.log('rule', rule)
+  console.log('rule',rule);
   if (value.trim().length >= 4) {
     callback()
   } else {
@@ -128,6 +124,10 @@ const rules = reactive({
 let menuList = ref<MenuOrButtonList>([])
 //控制对话框的状态
 const dialogVisible = ref<boolean>(false)
+onMounted(() => {
+  //获取所有菜单的数据
+  getAllPermission()
+})
 //获取所有菜单的数据
 const getAllPermission = async () => {
   const result: GetAllRloeResponseData = await reqAllPermission()
