@@ -22,7 +22,7 @@ import setting from './setting'
 NProgress.configure({ showSpinner: false })
 //全局前置守卫
 router.beforeEach(async (to: any, from: any, next: any) => {
-  console.log('from',from);
+  console.log('from', from)
   //访问某一个路由之前的守卫
   //to：你将要访问哪个路由
   //from: 你从哪个路由而来
@@ -74,7 +74,7 @@ router.beforeEach(async (to: any, from: any, next: any) => {
 })
 //全局后置守卫
 router.afterEach((to: any, from: any) => {
-  console.log('to',to);
-  console.log('from',from);
+  console.log('to', to)
+  console.log('from', from)
   NProgress.done()
 })

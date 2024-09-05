@@ -31,7 +31,7 @@
           <template #="{ row }">
             <el-tag
               style="margin: 5px"
-              v-for="(item) in row.attrValueList"
+              v-for="item in row.attrValueList"
               :key="item.id"
             >
               {{ item.valueName }}

@@ -211,7 +211,7 @@ const handler = (row: SpuImage) => {
 }
 //当用户手动勾选数据行的checkbox时触发的事件
 const selectCheckbox = (selection: SpuImageList, row: SpuImage) => {
-  console.log('selection',selection);
+  console.log('selection', selection)
   //将选中的img赋值给skuParams
   skuParams.skuDefaultImg = row.imgUrl as string
 }

@@ -275,7 +275,7 @@ const saveOrUpdateRole = async () => {
 }
 //自定义校验规则的回调
 const validateRoleName = (rule: any, value: any, callback: any) => {
-  console.log('rule',rule);
+  console.log('rule', rule)
   console.log('value', value)
   if (value.trim().length >= 2) {
     callback()

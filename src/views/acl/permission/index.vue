@@ -104,7 +104,7 @@ const menuData = reactive<MenuParams>({
 //form表单组件
 const form = ref()
 const validateName = (rule: any, value: any, callback: any) => {
-  console.log('rule',rule);
+  console.log('rule', rule)
   if (value.trim().length >= 4) {
     callback()
   } else {
@@ -112,7 +112,7 @@ const validateName = (rule: any, value: any, callback: any) => {
   }
 }
 const validateCode = (rule: any, value: any, callback: any) => {
-  console.log('rule',rule);
+  console.log('rule', rule)
   if (value.trim().length >= 4) {
     callback()
   } else {

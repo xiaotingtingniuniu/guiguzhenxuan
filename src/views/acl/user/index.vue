@@ -388,7 +388,7 @@ const cancel = () => {
 
 //校验用户名字的回调函数
 const validatorUsername = (rule: any, value: any, callback: any) => {
-  console.log('rule',rule);
+  console.log('rule', rule)
   if (value.trim().length >= 5) {
     callback()
   } else {
@@ -397,7 +397,7 @@ const validatorUsername = (rule: any, value: any, callback: any) => {
 }
 //校验用户昵称的回调函数
 const validatorName = (rule: any, value: any, callback: any) => {
-  console.log('rule',rule);
+  console.log('rule', rule)
   if (value.trim().length >= 5) {
     callback()
   } else {
@@ -406,7 +406,7 @@ const validatorName = (rule: any, value: any, callback: any) => {
 }
 //校验密码的回调函数
 const validatorPassword = (rule: any, value: any, callback: any) => {
-  console.log('rule',rule);
+  console.log('rule', rule)
   if (value.trim().length >= 6) {
     callback()
   } else {
